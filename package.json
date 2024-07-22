@@ -1,6 +1,5 @@
 {
-  "name": "@nichoth/example-webcomponent",
-  "private": true,
+  "name": "@substrate-system/wavy-hr",
   "type": "module",
   "version": "0.0.0",
   "main": "dist/index.js",
@@ -19,8 +18,9 @@
     "build-esm:min": "esbuild ./src/*.ts --format=esm --keep-names --bundle --tsconfig=tsconfig.build.json --minify --out-extension:.js=.min.js --outdir=./dist --sourcemap",
     "build-example": "mkdir -p ./public && rm -rf ./public/* && vite --base=\"/example\" build",
     "build-docs": "typedoc --tsconfig tsconfig.build.json ./src/index.ts",
-    "build": "mkdir -p ./dist && rm -rf ./dist/* && npm run build-cjs && npm run build-esm && npm run build-esm:min && npm run build-css && npm run build-css:min",
+    "build": "mkdir -p ./dist && rm -rf ./dist/* && npm run build-cjs && npm run build-esm && npm run build-esm:min && npm run build-css && npm run build-css:min && cp ./src/wave.svg ./dist",
     "start": "vite",
+    "stylelint": "stylelint src/*.css",
     "toc": "markdown-toc --maxdepth 3 -i README.md",
     "preversion": "npm run lint && stylelint src/*.css",
     "version": "npm run toc && auto-changelog -p --template keepachangelog --breaking-pattern 'BREAKING CHANGE:' && git add CHANGELOG.md README.md",
@@ -67,5 +67,25 @@
     }
   },
   "author": "nichoth <nichoth@nichoth.com> (https://nichoth.com)",
-  "license": "MIT"
+  "license": "MIT",
+  "description": "HR tag with style",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/substrate-system/wavy-hr.git"
+  },
+  "keywords": [
+    "web",
+    "component",
+    "hr",
+    "wave"
+  ],
+  "types": "./dist/index.d.ts",
+  "bugs": {
+    "url": "https://github.com/substrate-system/wavy-hr/issues"
+  },
+  "homepage": "https://github.com/substrate-system/wavy-hr#readme"
 }

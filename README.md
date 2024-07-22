@@ -1,56 +1,89 @@
-# template web component
+# package name here
+![tests](https://github.com/substrate-system/wavy-hr/actions/workflows/nodejs.yml/badge.svg)
+[![types](https://img.shields.io/npm/types/@substrate-system/wavy-hr?style=flat-square)](README.md)
+[![module](https://img.shields.io/badge/module-ESM%2FCJS-blue?style=flat-square)](README.md)
+[![install size](https://packagephobia.com/badge?p=@substrate-system/wavy-hr)](https://packagephobia.com/result?p=@substrate-system/wavy-hr)
+[![dependencies](https://img.shields.io/badge/dependencies-zero-brightgreen.svg?style=flat-square)](package.json)
+[![semantic versioning](https://img.shields.io/badge/semver-2.0.0-blue?logo=semver&style=flat-square)](https://semver.org/)
+[![license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
-A template for vanilla web components.
+An `hr` tag with style. Be sure to copy the file `./dist/wave.svg` into the root public folder on your web server. The CSS depends on that file.
 
-## see also
+[See a live demo](https://substrate-system.github.io/wavy-hr/)
 
-* [Web Component lifecycle methods](https://gomakethings.com/the-web-component-lifecycle-methods/)
-* [How to detect when attributes change on a Web Component](https://gomakethings.com/how-to-detect-when-attributes-change-on-a-web-component/)
+<!-- toc -->
+
+- [install](#install)
+- [API](#api)
+  * [ESM](#esm)
+  * [Common JS](#common-js)
+- [CSS](#css)
+  * [Import CSS](#import-css)
+- [use](#use)
+  * [JS](#js)
+  * [HTML](#html)
+  * [pre-built JS](#pre-built-js)
+
+<!-- tocstop -->
+
+## install
+
+```sh
+npm i -S @substrate-system/wavy-hr
+```
+
+## API
+ESM and common JS via [package.json `exports` field](https://nodejs.org/api/packages.html#exports).
+
+### ESM
+```js
+import '@substrate-system/wavy-hr'
+```
+
+### Common JS
+```js
+require('@substrate-system/wavy-hr')
+```
+
+## CSS
+
+### Import CSS
+
+```js
+import '@substrate-system/wavy-hr/css'
+```
+
+Or minified:
+```js
+import '@substrate-system/wavy-hr/css/min'
+```
 
 ## use
-1. Use the template button in github. Or clone this then
-`rm -rf .git && git init`. Then `npm i && npm init`.
+This calls the global function `customElements.define`. Just import, then use
+the tag in your HTML.
 
-2. Edit the source code in `src/index.ts`.
+### JS
+```js
+import '@substrate-system/wavy-hr'
+```
 
-3. Delete either `.github/workflows/gh-pages-docs.yml` or `.github/workflows/gh-pages.yml`, depending on whether you want to deploy an example or docs to github pages.
+### HTML
+```html
+<div>
+    <wavy-hr></wavy-hr>
+</div>
+```
 
-4. __Edit things__
-    * Use `./README.example.md` as a starter for docs:
-    ```sh
-    cp ./README.example.md ./README.md
-    ```
-    * edit the [build-example](https://github.com/nichoth/template-web-component/blob/c580636f1c912fe2633f7c2478f28b11729c9b80/package.json#L20) command in `package.json` so that it has the right
-    namespace for github pages
+### pre-built JS
+This package exposes minified JS files too. Copy them to a location that is
+accessible to your web server, then link to them in HTML.
 
-## featuring
+#### copy
+```sh
+cp ./node_modules/@substrate-system/wavy-hr/dist/index.min.js ./public
+```
 
-* compile the source to both ESM and CJS format, and put compiled files in `dist`.
-* ignore `dist` and `*.js` in git, but don't ignore them in npm. That way we
-  don't commit any compiled code to git, but it is available to consumers.
-* use npm's `prepublishOnly` hook to compile the code before publishing to npm.
-* use [exports](./package.json#L41) field in `package.json` to make sure the right format is used
-  by consumers.
-* `preversion` npm hook -- lint
-* `postversion` npm hook -- `git push --follow-tags && npm publish`
-* eslint -- `npm run lint`
-* tests run in a browser environment via `tape-run` -- see [`npm test`](./package.json#L12).
-  Includes `tap` testing tools -- [tapzero](https://github.com/bicycle-codes/tapzero)
-  and [tap-spec](https://www.npmjs.com/package/tap-spec)
-* CI via github actions
-
-## the component
-
-See *[Web Component lifecycle methods](https://gomakethings.com/the-web-component-lifecycle-methods/)*.
-
-### [attributeChangedCallback](https://gomakethings.com/how-to-detect-when-attributes-change-on-a-web-component/#the-attributechangedcallback-method)
-
-> runs whenever an attribute on the Web Component is added, removed, or changes in value.
-
-> For performance reasons, the attributeChangedCallback() method only watches and reacts to attributes you tell it to. To do that, you create a `static` `observedAttributes` property, with an array of attributes to watch as its value.
-
-> You can use any attributes you’d like, including non-standard ones.
-
-
-### [disconnectedCallback](https://gomakethings.com/the-web-component-lifecycle-methods/#the-connectedcallback-and-disconnectedcallback-methods)
-
+#### HTML
+```html
+<script type="module" src="./index.min.js"></script>
+```
