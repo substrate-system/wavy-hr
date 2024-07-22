@@ -4,11 +4,13 @@ import '../src/index.js'
 
 test('example', async t => {
     document.body.innerHTML += `
-        <example-component class="test">
-        </example-component>
+        <wavy-hr class="test">
+        </wavy-hr>
     `
 
-    const el = await waitFor('example-component')
+    const el = await waitFor('wavy-hr')
+    const hr = await waitFor('hr')
 
     t.ok(el, 'should find an element')
+    t.ok(hr, 'should find an `hr` tag')
 })
