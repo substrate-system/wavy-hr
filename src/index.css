@@ -3,8 +3,8 @@ wavy-hr {
         margin: 1em 0;
         border: none;
 
-        &:after {
-            background: transparent url(/wave.svg) bottom;
+        &::after {
+            background: transparent url("/wave.svg") bottom;
             background-repeat: repeat-x;
             background-size: 26px auto;
             content: " ";
