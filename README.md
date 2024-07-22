@@ -80,10 +80,10 @@ accessible to your web server, then link to them in HTML.
 
 #### copy
 ```sh
-cp ./node_modules/@substrate-system/wavy-hr/dist/index.min.js ./public
+cp ./node_modules/@substrate-system/wavy-hr/dist/index.min.js ./public/wavy-hr.min.js
 ```
 
 #### HTML
 ```html
-<script type="module" src="./index.min.js"></script>
+<script type="module" src="./wavy-hr.min.js"></script>
 ```
