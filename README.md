@@ -16,7 +16,6 @@ An `hr` tag with style.
 > Be sure to copy the file `./dist/wave.svg` into the
 > root public folder on your web server. The CSS depends on that file.
 
-
 <!-- toc -->
 
 - [install](#install)
