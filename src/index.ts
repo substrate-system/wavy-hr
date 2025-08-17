@@ -1,16 +1,17 @@
+import { render } from './html'
+import { define } from '@substrate-system/web-component/util'
+
 // for docuement.querySelector
 declare global {
     interface HTMLElementTagNameMap {
-        'wavy-hr': WavyHr
+        'wavy-hr':WavyHr
     }
 }
 
 export class WavyHr extends HTMLElement {
-    constructor () {
-        super()
-
-        this.innerHTML = '<hr class="wavy-hr" />'
+    connectedCallback () {
+        this.innerHTML = render()
     }
 }
 
-customElements.define('wavy-hr', WavyHr)
+define('wavy-hr', WavyHr)
