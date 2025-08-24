@@ -2,7 +2,7 @@ import { test } from '@substrate-system/tapzero'
 import { waitFor } from '@substrate-system/dom'
 import '../src/index.js'
 
-test('example', async t => {
+test('wavy-hr', async t => {
     document.body.innerHTML += `
         <wavy-hr class="test">
         </wavy-hr>
