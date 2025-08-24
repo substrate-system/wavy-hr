@@ -1,6 +1,6 @@
 {
   "name": "@substrate-system/wavy-hr",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "type": "module",
   "description": "HR tag with style",
   "main": "dist/index.js",
