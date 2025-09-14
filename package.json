@@ -29,7 +29,6 @@
   },
   "scripts": {
     "lint": "eslint \"./**/*.{ts,js}\"",
-    "build-tests": "esbuild test/index.ts --target=es2020 --bundle --keep-names > test/test-bundle.js",
     "test": "esbuild ./test/index.ts --target=es2020 --bundle --keep-names | npx tapout | npx tap-spec",
     "build-css": "postcss src/index.css --use postcss-nesting > dist/style.css",
     "build-css:min": "postcss src/index.css --use cssnano postcss-nesting > dist/style.min.css",
